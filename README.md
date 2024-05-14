@@ -7,7 +7,10 @@ Russo Alexia
 
 1c_ Con los # en las lineas marca como valor final 0... pero cuando se lo borras aparecen ditintos valores finales.
 
+2b_ 
+
 2a_
+```
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,4 +64,4 @@ int main(int argc, char *argv[])
 	}
 	pthread_exit(NULL); // como los hilos que cree ya terminaron de ejecutarse, termino yo tambien.
 }
-
+```
