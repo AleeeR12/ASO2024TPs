@@ -9,6 +9,7 @@ Russo Alexia
 
 2b_ 
 ![Screenshot_1](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/9a86c02e-850c-408a-a9db-6f31d22dae2f)
+
 1_ Permiso de agarrar una hamburguesa
 2_ Agarra una hamburguesa
 3_ Se bloquea xq quiere agarrar una hamburguesa pero no tiene el permiso
