@@ -8,6 +8,14 @@ Russo Alexia
 1c_ Con los # en las lineas marca como valor final 0... pero cuando se lo borras aparecen ditintos valores finales.
 
 2b_ 
+![Screenshot_1](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/9a86c02e-850c-408a-a9db-6f31d22dae2f)
+1_ Permiso de agarrar una hamburguesa
+2_ Agarra una hamburguesa
+3_ Se bloquea xq quiere agarrar una hamburguesa pero no tiene el permiso
+4_ Tiene el permiso de agarrar la hamburguesa
+5_ Agarra una hamburguesa
+6_ Se va con su hamburguesa
+
 
 2a_
 ```
