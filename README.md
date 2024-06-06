@@ -5,7 +5,7 @@ Russo Alexia
 
 1b_ NO. No son iguales, cambian.
 
-1c_ Con los # en las lineas marca como valor final 0... pero cuando se lo borras aparecen ditintos valores finales.
+1c_ Sacar esas líneas hace un retardo que puede mitigar los efectos de condiciones de carrera, es un comportamiento más consistente del programa.
 
 2b_ 
 ![Screenshot_1](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/9a86c02e-850c-408a-a9db-6f31d22dae2f)
