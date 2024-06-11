@@ -8,15 +8,17 @@ Russo Alexia
 1c_ Sacar esas líneas hace un retardo que puede mitigar los efectos de condiciones de carrera, es un comportamiento más consistente del programa.
 
 2b_ 
-![Screenshot_1](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/9a86c02e-850c-408a-a9db-6f31d22dae2f)
+![Screenshot_1](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/a2b26368-79b2-4378-81b4-0ffe3ec24fbc)
 
-1_ Permiso de agarrar una hamburguesa
-2_ Agarra una hamburguesa
-3_ Se bloquea xq quiere agarrar una hamburguesa pero no tiene el permiso
-4_ Tiene el permiso de agarrar la hamburguesa
-5_ Agarra una hamburguesa
-6_ Se va con su hamburguesa
 
+1_ A: Region critica  B: Se bloquea
+2_ A: Agarra una hamburguesa  B: Bloqueado
+3_ A: Se lleva la hamburguesa  B: Sigue bloqueado
+4_ A: Sale de la region critica  B: Intenta entrar
+5_ B: Obtiene permiso y entra  A: Espera afuera 
+6_ B: Agarra la hamburguesa  A: Espera
+7_ B: Se lleva la hamburguesa  A: Sigue esperando
+8_ B: Sale de la Region critica  A: Intenta entrar
 
 2a_
 ```
@@ -29,48 +31,47 @@ int cantidad_restante_hamburguesas = CANTIDAD_INICIAL_HAMBURGUESAS;
 int turno = 0;
 
 void *comer_hamburguesa(void *tid)
-
 {
-	while (1 == 1)
-	{ 
-		while(turno!=(int)tid);
-    // INICIO DE LA ZONA CRÍTICA
-		if (cantidad_restante_hamburguesas > 0)
-		{
-			printf("Hola! soy el hilo(comensal) %d , me voy a comer una hamburguesa ! ya que todavia queda/n %d \n", (int) tid, cantidad_restante_hamburguesas);
-			cantidad_restante_hamburguesas--; // me como una hamburguesa
-		}
-		else
-		{
-			printf("SE TERMINARON LAS HAMBURGUESAS :( \n");
-
-			pthread_exit(NULL); // forzar terminacion del hilo
-		}
-    // SALIDA DE LA ZONA CRÍTICA   
-        turno = (turno + 1)% NUMBER_OF_THREADS;
-	}
+    while (1 == 1)
+    { 
+        while (turno != (int) tid);
+        // INICIO DE LA ZONA CRÍTICA
+        if (cantidad_restante_hamburguesas > 0)
+        {
+            printf("Hola! soy el hilo(comensal) %d , me voy a comer una hamburguesa ! ya que todavia queda/n %d \n", (int) tid, cantidad_restante_hamburguesas);
+            cantidad_restante_hamburguesas--; // me como una hamburguesa
+        }
+        else
+        {
+            printf("SE TERMINARON LAS HAMBURGUESAS :( \n");
+        turno = (turno + 1) % NUMBER_OF_THREADS;
+            pthread_exit(NULL); // forzar terminacion del hilo
+        }
+        // SALIDA DE LA ZONA CRÍTICA
+turno = (turno + 1) % NUMBER_OF_THREADS;   
+    }
 }
 
 int main(int argc, char *argv[])
 {
-	pthread_t threads[NUMBER_OF_THREADS];
-	int status, i, ret;
-	for (int i = 0; i < NUMBER_OF_THREADS; i++)
-	{
-		printf("Hola!, soy el hilo principal. Estoy creando el hilo %d \n", i);
-		status = pthread_create(&threads[i], NULL, comer_hamburguesa, (void *)i);
-		if (status != 0)
-		{
-			printf("Algo salio mal, al crear el hilo recibi el codigo de error %d \n", status);
-			exit(-1);
-		}
-	}
+    pthread_t threads[NUMBER_OF_THREADS];
+    int status, i, ret;
+    for (int i = 0; i < NUMBER_OF_THREADS; i++)
+    {
+        printf("Hola!, soy el hilo principal. Estoy creando el hilo %d \n", i);
+        status = pthread_create(&threads[i], NULL, comer_hamburguesa, (void *)i);
+        if (status != 0)
+        {
+            printf("Algo salio mal, al crear el hilo recibi el codigo de error %d \n", status);
+            exit(-1);
+        }
+    }
 
-	for (i = 0; i < NUMBER_OF_THREADS; i++)
-	{
-		void *retval;
-		ret = pthread_join(threads[i], &retval); // espero por la terminacion de los hilos que cree
-	}
-	pthread_exit(NULL); // como los hilos que cree ya terminaron de ejecutarse, termino yo tambien.
+    for (i = 0; i < NUMBER_OF_THREADS; i++)
+    {
+        void *retval;
+        ret = pthread_join(threads[i], &retval); // espero por la terminacion de los hilos que cree
+    }
+    pthread_exit(NULL); // como los hilos que cree ya terminaron de ejecutarse, termino yo tambien.
 }
 ```
