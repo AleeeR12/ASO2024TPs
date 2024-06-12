@@ -5,20 +5,11 @@ Russo Alexia
 
 1b_ NO. No son iguales, cambian.
 
-1c_ Sacar esas líneas hace un retardo que puede mitigar los efectos de condiciones de carrera, es un comportamiento más consistente del programa.
+1c_ Al ejecutar el archivo suma_resta.py sin descomentar las líneas específicas, el valor final se mantiene constante en 0 y el tiempo de ejecución es bastante rápido. Sin embargo, al descomentar las líneas, se produce una "condición de carrera". Esto ocurre porque múltiples tareas intentan modificar el mismo valor simultáneamente, y no se puede determinar cuál tarea finalizará primero. Como resultado, cada ejecución del programa puede producir diferentes resultados debido a esta incertidumbre en el orden de ejecución.
 
 2b_ 
-![Screenshot_1](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/a2b26368-79b2-4378-81b4-0ffe3ec24fbc)
+![2B arq](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/894b3e5c-303a-4c2e-84c7-93aaf766c2a4)
 
-
-1_ A: Region critica  B: Se bloquea
-2_ A: Agarra una hamburguesa  B: Bloqueado
-3_ A: Se lleva la hamburguesa  B: Sigue bloqueado
-4_ A: Sale de la region critica  B: Intenta entrar
-5_ B: Obtiene permiso y entra  A: Espera afuera 
-6_ B: Agarra la hamburguesa  A: Espera
-7_ B: Se lleva la hamburguesa  A: Sigue esperando
-8_ B: Sale de la Region critica  A: Intenta entrar
 
 2a_
 ```
