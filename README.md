@@ -8,7 +8,7 @@ Russo Alexia
 1c_ Al ejecutar el archivo suma_resta.py sin descomentar las líneas específicas, el valor final se mantiene constante en 0 y el tiempo de ejecución es bastante rápido. Sin embargo, al descomentar las líneas, se produce una "condición de carrera". Esto ocurre porque múltiples tareas intentan modificar el mismo valor simultáneamente, y no se puede determinar cuál tarea finalizará primero. Como resultado, cada ejecución del programa puede producir diferentes resultados debido a esta incertidumbre en el orden de ejecución.
 
 2b_ 
-![2B arq](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/894b3e5c-303a-4c2e-84c7-93aaf766c2a4)
+![2B arq](https://github.com/AleeeR12/ASO2024TPs/assets/130691034/cce5e065-5535-401a-86ee-8f5496c8189f)
 
 
 2a_
